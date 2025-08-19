@@ -2,7 +2,7 @@
 
 # File R/"02-pipeline.R": @testexamples
 
-test_that("[unknown alias] @ L91", {
+test_that("[unknown alias] @ L123", {
   
   library(bregr)
   # 1. Pipeline -------------------------
@@ -43,6 +43,9 @@ test_that("[unknown alias] @ L91", {
     x2 = "vs",
     method = "gaussian"
   )
+  
+  # 3. Customized model -----------
+  
   
   assert_breg_obj(m)
   assert_breg_obj(m2)

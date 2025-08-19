@@ -11,7 +11,8 @@ br_show_forest(
   ...,
   subset = NULL,
   drop = NULL,
-  tab_headers = NULL
+  tab_headers = NULL,
+  log_first = FALSE
 )
 }
 \arguments{
@@ -19,19 +20,24 @@ br_show_forest(
 
 \item{clean}{Logical indicating whether to clean/condense redundant group/focal variable labels.
 If \code{TRUE}, remove "Group" or "Focal" variable column when the values in the result table
-are same (before performing \code{subset} and \code{drop}),
+are the same (before performing \code{subset} and \code{drop}),
 and reduce repeat values in column "Group", "Focal", and "Variable".}
 
 \item{rm_controls}{If \code{TRUE}, remove control terms.}
 
-\item{...}{Additional arguments passed to \code{forestploter::forest()}, run \code{vignette("forestploter-post", "forestploter")}
-to see more plot options.}
+\item{...}{Additional arguments passed to \code{\link[forestploter:forest]{forestploter::forest()}}, run \code{vignette("forestploter-post", "forestploter")}
+to see more plot options.
+For example, use \code{ticks_at} to specify
+custom ticks, generally a vector of 4-5 elements.}
 
 \item{subset}{Expression for subsetting the results data (\code{br_get_results(breg)}).}
 
 \item{drop}{Column indices to drop from the display table.}
 
 \item{tab_headers}{Character vector of custom column headers (must match number of displayed columns).}
+
+\item{log_first}{Log transformed the estimates and their confident intervals.
+For only log scaled axis of the forest, use \code{x_trans = "log"}.}
 }
 \value{
 A plot
@@ -45,7 +51,7 @@ This function takes regression results and formats them into a forest plot displ
 \item Automatic x-axis limits calculation
 \item Cleaning of redundant group/focal variable labels
 \item Custom subsetting and column dropping
-The function uses \code{forestploter::forest()} internally for the actual plotting.
+The function uses \code{\link[forestploter:forest]{forestploter::forest()}} internally for the actual plotting.
 }
 }
 \examples{
@@ -61,11 +67,16 @@ br_show_forest(m, clean = FALSE)
 }
 \seealso{
 Other br_show: 
+\code{\link{br_show_coxph_diagnostics}()},
 \code{\link{br_show_fitted_line}()},
 \code{\link{br_show_fitted_line_2d}()},
+\code{\link{br_show_forest_circle}()},
 \code{\link{br_show_forest_ggstats}()},
 \code{\link{br_show_forest_ggstatsplot}()},
+\code{\link{br_show_nomogram}()},
+\code{\link{br_show_residuals}()},
 \code{\link{br_show_risk_network}()},
+\code{\link{br_show_survival_curves}()},
 \code{\link{br_show_table}()},
 \code{\link{br_show_table_gt}()}
 }

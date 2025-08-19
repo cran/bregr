@@ -24,7 +24,7 @@ a default spanning header. If \code{FALSE}, no header will be placed.}
 A table
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 
 Provides an interface to visualize the model results with \href{https://github.com/ddsjoberg/gtsummary/}{\strong{gtsummary}} package in table format.
 check \url{https://www.danieldsjoberg.com/gtsummary/articles/tbl_regression.html#customize-output} to see possible output customization.
@@ -43,12 +43,17 @@ if (rlang::is_installed("gtsummary")) {
 }
 \seealso{
 Other br_show: 
+\code{\link{br_show_coxph_diagnostics}()},
 \code{\link{br_show_fitted_line}()},
 \code{\link{br_show_fitted_line_2d}()},
 \code{\link{br_show_forest}()},
+\code{\link{br_show_forest_circle}()},
 \code{\link{br_show_forest_ggstats}()},
 \code{\link{br_show_forest_ggstatsplot}()},
+\code{\link{br_show_nomogram}()},
+\code{\link{br_show_residuals}()},
 \code{\link{br_show_risk_network}()},
+\code{\link{br_show_survival_curves}()},
 \code{\link{br_show_table}()}
 }
 \concept{br_show}

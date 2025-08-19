@@ -52,6 +52,7 @@ breg <- new_class("breg",
                          results = NULL,
                          results_tidy = NULL) {
     data <- tibble::as_tibble(data, rownames = ".row_names")
+
     new_object(
       S7_object(),
       y = y,
@@ -69,7 +70,7 @@ breg <- new_class("breg",
 
 #' Print method for breg object
 #' @description
-#' `r lifecycle::badge('experimental')`
+#' `r lifecycle::badge('stable')`
 #' @name print.breg
 #' @param x An object of class `breg`.
 #' @param ... Additional arguments (currently not used).
@@ -81,7 +82,7 @@ method(print, breg) <- function(x, ..., raw = FALSE) {
   if (raw) {
     print(utils::str(x))
   } else {
-    cli_text("A object of {.cls breg} class with slots:\n")
+    cli_text("an object of {.cls breg} class with slots:\n")
 
     qty_x <- qty(x@n_x)
     qty_x2 <- qty(x@n_x2)
@@ -111,4 +112,77 @@ method(print, breg) <- function(x, ..., raw = FALSE) {
   }
 
   invisible(x)
+}
+
+# gen_template(y = c("time", "status"),
+#              x = colnames(survival::lung)[6:10],
+#              x2 = c("age", "sex"),
+#              f_call = survival::coxph,
+#              f_cnst_y = function(y) {
+#                glue::glue("survival::Surv({paste(y, collapse = ', ')})")
+#              })
+# gen_template(y = c("time", "status"),
+#              x = colnames(survival::lung)[6:10],
+#              x2 = c("age", "sex"),
+#              f_call = survival::coxph,
+#              f_cnst_y = function(y) {
+#                glue::glue("survival::Surv({paste(y, collapse = ', ')})")
+#              },
+#              args_data = "data = data, weights = 1:3")
+# gen_template(y = c("time", "status"),
+#              x = colnames(survival::lung)[6:10],
+#              x2 = c("age", "sex"),
+#              f_call = survival::coxph,
+#              f_cnst_y = function(y) {
+#                glue::glue("survival::Surv({paste(y, collapse = ', ')})")
+#              },
+#              args_data = "data = data, ")
+
+gen_template <- function(y, x, x2,
+                         f_call, f_cnst_y = NULL,
+                         args_method = NULL,
+                         args_data = "data = data") {
+  if (rlang::is_function(f_call)) {
+    f_call <- f_call |>
+      rlang::enexpr() |>
+      rlang::expr_deparse()
+  } else {
+    assert_string(f_call, allow_empty = FALSE)
+  }
+
+  expr_y <- "{y}"
+  recipe <- "{y} ~ {x}"
+  model <- "{f}({recipe}, {args_method}, {args_data})"
+  # args_method: template for method, like family = {method} in GLM
+  # args_method: template for data, like data = data, weights = weights
+
+  if (is.null(f_cnst_y)) {
+    y <- glue::glue(expr_y, y = y)
+  } else {
+    if (!rlang::is_function(f_cnst_y)) {
+      cli::cli_abort("{.fn f_cnst_y} should be a function constructing response term from variable {.var y} in string format")
+    }
+    y <- glue::glue(expr_y, y = f_cnst_y(y))
+  }
+
+  f_cnst_x <- function(x1, x2) {
+    paste(vctrs::vec_c(x1, x2), collapse = " + ")
+  }
+
+  recp <- sapply(x, function(x1, x2) {
+    glue::glue(recipe, y = y, x = f_cnst_x(x1, x2))
+  }, x2 = x2)
+
+  rv <- glue::glue(
+    model,
+    f = f_call,
+    recipe = recp,
+    args_method = if (is.null(args_method)) "" else args_method,
+    args_data = args_data
+  )
+
+  rv <- rv |>
+    str_replace_all(", *,", ",") |>
+    str_replace_all(", *\\)", "\\)")
+  rv
 }

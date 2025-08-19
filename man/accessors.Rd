@@ -12,6 +12,8 @@
 \alias{br_get_config}
 \alias{br_get_models}
 \alias{br_get_model}
+\alias{br_get_model_names}
+\alias{br_rename_models}
 \alias{br_get_results}
 \title{Accessor functions for \code{breg} objects}
 \usage{
@@ -31,16 +33,26 @@ br_get_group_by(obj)
 
 br_get_config(obj)
 
-br_get_models(obj)
+br_get_models(obj, idx = NULL, auto_drop = TRUE)
 
 br_get_model(obj, idx)
+
+br_get_model_names(obj)
+
+br_rename_models(obj, new_names)
 
 br_get_results(obj, tidy = FALSE, ...)
 }
 \arguments{
 \item{obj}{A \code{breg} object.}
 
-\item{idx}{Index or names (focal variables) of the model(s) to return.}
+\item{idx}{Index or names (focal variables) of the model(s) to return.
+Default returns all.}
+
+\item{auto_drop}{If \code{TRUE}, automatically drop the list if only one model
+is selected.}
+
+\item{new_names}{Character vector to replace existing model names.}
 
 \item{tidy}{If \code{TRUE} return tidy (compact) results, otherwise return comprehensive results.
 The tidy results are obtained from \code{\link[broom:reexports]{broom::tidy()}} while comprehensive results are obtained from
@@ -56,8 +68,10 @@ Output depends on the function called:
 \item \code{br_get_n_x()} and \code{br_get_n_x2()} return the length of terms \code{x} and \code{x2}.
 \item \code{br_get_group_by()} returns variable(s) for group analysis.
 \item \code{br_get_config()} returns modeling method and extra arguments.
-\item \code{br_get_models()} returns all constructed models.
+\item \code{br_get_models()} returns all or a subset of constructed models.
 \item \code{br_get_model()} returns a subset of constructed models.
+\item \code{br_get_model_names()} returns all model names.
+\item \code{br_rename_models()} returns a renamed object.
 \item \code{br_get_results()} returns modeling result \code{data.frame}.
 }
 }
@@ -84,7 +98,7 @@ br_get_n_x2(m)
 br_get_group_by(m)
 br_get_config(m)
 br_get_models(m)
-br_get_model(m, 1)
+br_get_models(m, 1)
 br_get_n_x2(m)
 br_get_results(m)
 br_get_results(m, tidy = TRUE)
@@ -93,4 +107,9 @@ br_get_results(m, tidy = TRUE, term == "cyl")
 }
 \seealso{
 \link{pipeline} for building \code{breg} objects.
+
+Other accessors: 
+\code{\link{br_diagnose}()},
+\code{\link{br_predict}()}
 }
+\concept{accessors}
