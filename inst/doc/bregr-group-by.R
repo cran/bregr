@@ -34,7 +34,7 @@ br_show_forest(mds)
 br_show_forest(
   mds,
   drop = 2,
-  subset = !(Group_variable == "2" & variable == "ph.ecog" & label == 3)
+  subset = !(Group_variable == "Female" & variable == "ph.ecog" & label == 3)
 )
 
 ## ----show-forest-rm-all, fig.width=8, fig.height=4, dpi=150-------------------
