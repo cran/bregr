@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2025-09-22" />
+<meta name="date" content="2025-12-17" />
 
 <title>Save Models to Local Disk</title>
 
@@ -49,8 +49,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -61,7 +62,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -342,7 +343,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <address class="author_afil">
 Central South University<br><a class="author_email" href="mailto:#"><a href="mailto:wangshx@csu.edu.cn" class="email">wangshx@csu.edu.cn</a></a>
 </address>
-<h4 class="date">2025-09-22</h4>
+<h4 class="date">2025-12-17</h4>
 
 
 
@@ -362,7 +363,7 @@ saved as local files (<code>bregr.save_model</code>, default is
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  <span class="fu">br_set_model</span>(<span class="st">&quot;gaussian&quot;</span>) <span class="sc">|&gt;</span></span>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  <span class="fu">br_run</span>()</span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; model save is enabled with result path</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; &#39;/var/folders/h0/s_35svc15n1glmp65lbbkx9w0000gn/T/RtmpH4uFYF&#39;</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; &#39;/var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmphTFzDK&#39;</span></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; This message is displayed once per session.</span></span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="fu">options</span>(<span class="at">bregr.save_model =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
@@ -370,13 +371,13 @@ saved as local files (<code>bregr.save_model</code>, default is
 verify this by examining the model objects:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>m<span class="sc">@</span>models</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; $cyl</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; /var/folders/h0/s_35svc15n1glmp65lbbkx9w0000gn/T/RtmpH4uFYF/e5ddc0d4-9795-11f0-9be5-9e303ab0d61c.qs</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; /var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmphTFzDK/6c055ec2-db54-11f0-8dff-06344c000d01.qs</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; $disp</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; /var/folders/h0/s_35svc15n1glmp65lbbkx9w0000gn/T/RtmpH4uFYF/e5f2292a-9795-11f0-9be5-9e303ab0d61c.qs</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; /var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmphTFzDK/6c1b67c6-db54-11f0-8dff-06344c000d01.qs</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; $hp</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; /var/folders/h0/s_35svc15n1glmp65lbbkx9w0000gn/T/RtmpH4uFYF/e6050446-9795-11f0-9be5-9e303ab0d61c.qs</span></span></code></pre></div>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; /var/folders/1w/371ktd8j0fv8mp_dsgtvssnw0000gn/T/RtmphTFzDK/6c2c0f22-db54-11f0-8dff-06344c000d01.qs</span></span></code></pre></div>
 <p>We can retrieve the saved models using the following commands:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">br_get_models</span>(m, <span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
