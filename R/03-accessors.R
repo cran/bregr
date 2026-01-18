@@ -120,11 +120,12 @@ br_get_models <- function(obj, idx = NULL, auto_drop = TRUE) {
 
   # mds could be files, models, or model construction text
   if (is.null(idx)) {
-    if (!insight::is_model(mds[[1]]) && fs::is_file(mds[[1]])) {
+    if (!insight::is_model(mds[[1]]) && requireNamespace("fs", quietly = TRUE) && fs::is_file(mds[[1]])) {
       if (len > 1000) {
         cli::cli_inform("directly retrieve >1000 models may resource-consuming, subsetting with {.arg idx} is more recommended")
       }
-      mds <- map(mds, qs::qread)
+      rlang::check_installed("qs2")
+      mds <- map(mds, qs2::qs_read)
     }
   } else {
     if (is.numeric(idx)) {
@@ -140,9 +141,9 @@ br_get_models <- function(obj, idx = NULL, auto_drop = TRUE) {
     }
 
     mds <- mds[idx]
-    rlang::check_installed("fs", "qs")
-    if (!insight::is_model(mds[[1]]) && fs::is_file(mds[[1]])) {
-      mds <- map(mds, qs::qread)
+    if (!insight::is_model(mds[[1]]) && requireNamespace("fs", quietly = TRUE) && fs::is_file(mds[[1]])) {
+      rlang::check_installed("qs2")
+      mds <- map(mds, qs2::qs_read)
     }
     if (length(idx) == 1 && auto_drop) mds <- mds[[1]]
   }

@@ -1,3 +1,11 @@
+# bregr 1.4.0
+
+- Replaced the deprecated package `qs` with `qs2`.
+
+# bregr 1.3.2
+
+- Checked with `devtools::check(env_vars = c('_R_CHECK_DEPENDS_ONLY_' = "true"))` and fixed reported check issues.
+
 # bregr 1.3.1
 
 - Fixed typo in class construction.
