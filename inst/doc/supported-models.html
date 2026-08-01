@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2026-01-18" />
+<meta name="date" content="2026-08-01" />
 
 <title>Supported Models</title>
 
@@ -343,11 +343,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <address class="author_afil">
 Central South University<br><a class="author_email" href="mailto:#"><a href="mailto:wangshx@csu.edu.cn" class="email">wangshx@csu.edu.cn</a></a>
 </address>
-<h4 class="date">2026-01-18</h4>
+<h4 class="date">2026-08-01</h4>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(bregr)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(bregr)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">bregr.save_model =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div id="default-supported-models" class="section level2">
 <h2>Default Supported Models</h2>
 <p>By default, the <strong>bregr</strong> package supports regression
@@ -704,8 +705,8 @@ within the package and can be inspected using:</p>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt; {</span></span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt;     glue::glue(&quot;survival::Surv({paste(y, collapse = &#39;, &#39;)})&quot;)</span></span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x12b66d3a0&gt;</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x13e7d9480&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x1136977f8&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x1319ad778&gt;</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">#&gt; $args_method</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
@@ -752,7 +753,7 @@ data”.</p></li>
 <span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>    <span class="at">args_data =</span> <span class="st">&quot;data = data&quot;</span></span>
 <span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  )</span>
 <span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>}</span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co">#&gt; Loading required namespace: lme4</span></span></code></pre></div>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co">#&gt; 载入需要的命名空间：lme4</span></span></code></pre></div>
 <p>Subsequently, utilize it in the <code>method</code> argument:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">&quot;lme4&quot;</span>) <span class="sc">&amp;&amp;</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;merDeriv&quot;</span>) <span class="sc">&amp;&amp;</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;broom.mixed&quot;</span>)) {</span>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="fu">br_pipeline</span>(</span>
@@ -764,26 +765,26 @@ data”.</p></li>
 <span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>    <span class="co"># br_get_results(tidy = TRUE)</span></span>
 <span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="fu">br_show_table</span>(<span class="at">export =</span> <span class="cn">TRUE</span>, <span class="at">args_table_export =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">&quot;html&quot;</span>))</span>
 <span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>}</span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; Loading required namespace: merDeriv</span></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; Loading required namespace: broom.mixed</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; 载入需要的命名空间：merDeriv</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; 载入需要的命名空间：broom.mixed</span></span>
 <span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, :</span></span>
 <span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt; unable to evaluate scaled gradient</span></span>
 <span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt; Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge: degenerate  Hessian with 1 negative eigenvalues</span></span>
 <span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt;   See ?lme4::convergence and ?lme4::troubleshooting.</span></span></code></pre></div>
-<div id="ukzzefakhr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ukzzefakhr table {
+<div id="lnktejvgpz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lnktejvgpz table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#ukzzefakhr thead, #ukzzefakhr tbody, #ukzzefakhr tfoot, #ukzzefakhr tr, #ukzzefakhr td, #ukzzefakhr th {
+#lnktejvgpz thead, #lnktejvgpz tbody, #lnktejvgpz tfoot, #lnktejvgpz tr, #lnktejvgpz td, #lnktejvgpz th {
 border-style: none;
 }
-#ukzzefakhr p {
+#lnktejvgpz p {
 margin: 0;
 padding: 0;
 }
-#ukzzefakhr .gt_table {
+#lnktejvgpz .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -808,11 +809,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#ukzzefakhr .gt_caption {
+#lnktejvgpz .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#ukzzefakhr .gt_title {
+#lnktejvgpz .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -823,7 +824,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#ukzzefakhr .gt_subtitle {
+#lnktejvgpz .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -834,7 +835,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#ukzzefakhr .gt_heading {
+#lnktejvgpz .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -845,12 +846,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ukzzefakhr .gt_bottom_border {
+#lnktejvgpz .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ukzzefakhr .gt_col_headings {
+#lnktejvgpz .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -864,7 +865,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ukzzefakhr .gt_col_heading {
+#lnktejvgpz .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -883,7 +884,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#ukzzefakhr .gt_column_spanner_outer {
+#lnktejvgpz .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -894,13 +895,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#ukzzefakhr .gt_column_spanner_outer:first-child {
+#lnktejvgpz .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#ukzzefakhr .gt_column_spanner_outer:last-child {
+#lnktejvgpz .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#ukzzefakhr .gt_column_spanner {
+#lnktejvgpz .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -911,10 +912,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#ukzzefakhr .gt_spanner_row {
+#lnktejvgpz .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#ukzzefakhr .gt_group_heading {
+#lnktejvgpz .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -939,7 +940,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#ukzzefakhr .gt_empty_group_heading {
+#lnktejvgpz .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -953,13 +954,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#ukzzefakhr .gt_from_md > :first-child {
+#lnktejvgpz .gt_from_md > :first-child {
 margin-top: 0;
 }
-#ukzzefakhr .gt_from_md > :last-child {
+#lnktejvgpz .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#ukzzefakhr .gt_row {
+#lnktejvgpz .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -977,7 +978,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#ukzzefakhr .gt_stub {
+#lnktejvgpz .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -989,7 +990,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ukzzefakhr .gt_stub_row_group {
+#lnktejvgpz .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1002,13 +1003,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#ukzzefakhr .gt_row_group_first td {
+#lnktejvgpz .gt_row_group_first td {
 border-top-width: 2px;
 }
-#ukzzefakhr .gt_row_group_first th {
+#lnktejvgpz .gt_row_group_first th {
 border-top-width: 2px;
 }
-#ukzzefakhr .gt_summary_row {
+#lnktejvgpz .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1017,14 +1018,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ukzzefakhr .gt_first_summary_row {
+#lnktejvgpz .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#ukzzefakhr .gt_first_summary_row.thick {
+#lnktejvgpz .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#ukzzefakhr .gt_last_summary_row {
+#lnktejvgpz .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1033,7 +1034,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ukzzefakhr .gt_grand_summary_row {
+#lnktejvgpz .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1042,7 +1043,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ukzzefakhr .gt_first_grand_summary_row {
+#lnktejvgpz .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1051,7 +1052,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#ukzzefakhr .gt_last_grand_summary_row_top {
+#lnktejvgpz .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1060,10 +1061,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#ukzzefakhr .gt_striped {
+#lnktejvgpz .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#ukzzefakhr .gt_table_body {
+#lnktejvgpz .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -1071,7 +1072,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ukzzefakhr .gt_footnotes {
+#lnktejvgpz .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1084,7 +1085,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ukzzefakhr .gt_footnote {
+#lnktejvgpz .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -1092,7 +1093,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ukzzefakhr .gt_sourcenotes {
+#lnktejvgpz .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1105,64 +1106,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ukzzefakhr .gt_sourcenote {
+#lnktejvgpz .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ukzzefakhr .gt_left {
+#lnktejvgpz .gt_left {
 text-align: left;
 }
-#ukzzefakhr .gt_center {
+#lnktejvgpz .gt_center {
 text-align: center;
 }
-#ukzzefakhr .gt_right {
+#lnktejvgpz .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#ukzzefakhr .gt_font_normal {
+#lnktejvgpz .gt_font_normal {
 font-weight: normal;
 }
-#ukzzefakhr .gt_font_bold {
+#lnktejvgpz .gt_font_bold {
 font-weight: bold;
 }
-#ukzzefakhr .gt_font_italic {
+#lnktejvgpz .gt_font_italic {
 font-style: italic;
 }
-#ukzzefakhr .gt_super {
+#lnktejvgpz .gt_super {
 font-size: 65%;
 }
-#ukzzefakhr .gt_footnote_marks {
+#lnktejvgpz .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#ukzzefakhr .gt_asterisk {
+#lnktejvgpz .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#ukzzefakhr .gt_indent_1 {
+#lnktejvgpz .gt_indent_1 {
 text-indent: 5px;
 }
-#ukzzefakhr .gt_indent_2 {
+#lnktejvgpz .gt_indent_2 {
 text-indent: 10px;
 }
-#ukzzefakhr .gt_indent_3 {
+#lnktejvgpz .gt_indent_3 {
 text-indent: 15px;
 }
-#ukzzefakhr .gt_indent_4 {
+#lnktejvgpz .gt_indent_4 {
 text-indent: 20px;
 }
-#ukzzefakhr .gt_indent_5 {
+#lnktejvgpz .gt_indent_5 {
 text-indent: 25px;
 }
-#ukzzefakhr .katex-display {
+#lnktejvgpz .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#ukzzefakhr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lnktejvgpz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -1199,16 +1200,16 @@ height: 0px !important;
     <tr><td headers="Focal_variable" class="gt_row gt_left">Days</td>
 <td headers="effect" class="gt_row gt_center">ran_pars</td>
 <td headers="group" class="gt_row gt_center">Subject</td>
-<td headers="term" class="gt_row gt_center">cor__(Intercept).Days</td>
-<td headers="estimate" class="gt_row gt_center">0.07</td>
+<td headers="term" class="gt_row gt_center">sd__Days</td>
+<td headers="estimate" class="gt_row gt_center">5.92</td>
 <td headers="std.error" class="gt_row gt_center"></td>
 <td headers="statistic" class="gt_row gt_center"></td>
 <td headers="conf.int" class="gt_row gt_center"></td></tr>
     <tr><td headers="Focal_variable" class="gt_row gt_left">Days</td>
 <td headers="effect" class="gt_row gt_center">ran_pars</td>
 <td headers="group" class="gt_row gt_center">Subject</td>
-<td headers="term" class="gt_row gt_center">sd__Days</td>
-<td headers="estimate" class="gt_row gt_center">5.92</td>
+<td headers="term" class="gt_row gt_center">cor__(Intercept).Days</td>
+<td headers="estimate" class="gt_row gt_center">0.07</td>
 <td headers="std.error" class="gt_row gt_center"></td>
 <td headers="statistic" class="gt_row gt_center"></td>
 <td headers="conf.int" class="gt_row gt_center"></td></tr>
@@ -1367,16 +1368,16 @@ height: 0px !important;
     <tr><td headers="Focal_variable" class="gt_row gt_left">Subject</td>
 <td headers="effect" class="gt_row gt_center">ran_pars</td>
 <td headers="group" class="gt_row gt_center">Subject</td>
-<td headers="term" class="gt_row gt_center">cor__(Intercept).Days</td>
-<td headers="estimate" class="gt_row gt_center">0.02</td>
+<td headers="term" class="gt_row gt_center">sd__Days</td>
+<td headers="estimate" class="gt_row gt_center">11.93</td>
 <td headers="std.error" class="gt_row gt_center"></td>
 <td headers="statistic" class="gt_row gt_center"></td>
 <td headers="conf.int" class="gt_row gt_center"></td></tr>
     <tr><td headers="Focal_variable" class="gt_row gt_left">Subject</td>
 <td headers="effect" class="gt_row gt_center">ran_pars</td>
 <td headers="group" class="gt_row gt_center">Subject</td>
-<td headers="term" class="gt_row gt_center">sd__Days</td>
-<td headers="estimate" class="gt_row gt_center">11.93</td>
+<td headers="term" class="gt_row gt_center">cor__(Intercept).Days</td>
+<td headers="estimate" class="gt_row gt_center">0.02</td>
 <td headers="std.error" class="gt_row gt_center"></td>
 <td headers="statistic" class="gt_row gt_center"></td>
 <td headers="conf.int" class="gt_row gt_center"></td></tr>
